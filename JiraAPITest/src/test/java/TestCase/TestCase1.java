@@ -9,33 +9,6 @@ import org.testng.annotations.Test;
 
 public class TestCase1 {
 
-     /*@Test
-    public void testone2(){
-        String jsonBody = TaskCreation.taskCreationString("RT","Summary2","Task", "Low");
-        PostCall postcalling = new PostCall();
-        Response response = postcalling.postAPICall(jsonBody);
-        Util util = new Util(response);
-        System.out.println("Status Code :" + util.StatusCode(response));
-        System.out.println("JSON Output" +util.ResponseJSON(response));
-        String responseJSONString = util.ResponseJSON(response);
-        JSONObject jsonObject = util.StringToJSON(responseJSONString);
-        Object newvalue = ParseJSON.getKey(jsonObject, "key");
-        System.out.println("Value: "+newvalue);
-    }*/
-
-    /*@Test
-    public void testone(){
-        GetCall getcalling = new GetCall();
-        Response response = getcalling.getAPICall("RT-1");
-        Util util = new Util(response);
-        System.out.println("Status Code: " + util.StatusCode(response));
-        System.out.println("JSON Output" +util.ResponseJSON(response));
-        String responseJSONString = util.ResponseJSON(response);
-        JSONObject jsonObject = util.StringToJSON(responseJSONString);
-        Object newvalue = ParseJSON.getKey(jsonObject, "key");
-        System.out.println("Value: "+newvalue);
-    }*/
-
     @Test
     public void testone1(){
         BasicAction basicAction = new BasicAction();
@@ -43,8 +16,8 @@ public class TestCase1 {
         basicAction.updateField("assignee","name","qa1","PS-16");
         Response response1 = basicAction.getIssueResponse("PS-16");
         Util util = new Util(response1);
-        String responseJSONString = util.ResponseJSON(response1);
-        JSONObject jsonObject = util.StringToJSON(responseJSONString);
+        /*String responseJSONString = util.ResponseJSON(response1);*/
+        JSONObject jsonObject = util.StringToJSON(response1.asString());
         Object newvalue = ParseJSON.getKey(jsonObject, "duedate");
         System.out.println("Value: "+newvalue);
 
@@ -73,19 +46,6 @@ public class TestCase1 {
     /*@Test
     public void testone(){
         BasicAction basicAction = new BasicAction();
-        Response response = basicAction.getIssueResponse("RT-1");
-        Util util = new Util(response);
-        String responseJSONString = util.ResponseJSON(response);
-        JSONObject jsonObject = util.StringToJSON(responseJSONString);
-        JSONObject input1 = jsonObject.getJSONObject("fields");
-        JSONObject input2 = input1.getJSONObject("status");
-        Object value = ParseJSON.getKey(input2 ,"name");
-        System.out.println("Current Status is --> "+value.toString());
-    }*/
-
-    /*@Test
-    public void testone(){
-        BasicAction basicAction = new BasicAction();
         Response isssueCreationResponse = basicAction.createIssue("PS", "Test Summary","Bug","High");
         Util util = new Util(isssueCreationResponse);
         String responseJSONString = util.ResponseJSON(isssueCreationResponse);
@@ -109,18 +69,4 @@ public class TestCase1 {
 
     }*/
 
-   /*  @Test
-    public void testone(){
-
-       BasicAction basicAction = new BasicAction();
-        Response response = basicAction.getIssueResponse("PS-16");
-        Util util = new Util(response);
-        String responseJSONString = util.ResponseJSON(response);
-        System.out.println(responseJSONString);
-        basicAction.updateField("duedate","2020-10-05","PS-16");
-        Response newresponse = basicAction.getIssueResponse("PS-16");
-        Util util1 = new Util(newresponse);
-        String responseJSONString1 = util1.ResponseJSON(newresponse);
-        System.out.println(responseJSONString1);
-    }*/
 }

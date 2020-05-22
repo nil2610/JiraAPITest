@@ -18,13 +18,9 @@ public class Util {
         return statusCode;
     }
 
-    public String ResponseJSON(Response response) {
-        responseString = response.asString();
-        return responseString;
-    }
-
     public JSONObject StringToJSON(String stringToJSON) {
         JsonObject = new JSONObject(stringToJSON);
         return JsonObject;
     }
+
 }

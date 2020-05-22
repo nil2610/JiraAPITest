@@ -22,7 +22,7 @@ public class ParseJSON {
     }
 
     public static String getIssueKey(String inputJSON, String key){
-        JSONObject inputJSONObject = new JSONObject((inputJSON));
+        JSONObject inputJSONObject = new JSONObject(inputJSON);
         String issuekey = inputJSONObject.get(key).toString();
         return issuekey;
     }
